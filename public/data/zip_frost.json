@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "description": "Approximate last and first frost dates for a few example ZIP codes. Month-Day strings. If a ZIP isn't found, fallback is used.",
+    "fallback": { "lastFrost": "04-15", "firstFrost": "10-15" }
+  },
+  "zips": {
+    "10001": { "lastFrost": "04-15", "firstFrost": "11-01" },
+    "60601": { "lastFrost": "05-10", "firstFrost": "10-25" },
+    "73301": { "lastFrost": "03-01", "firstFrost": "12-01" },
+    "94105": { "lastFrost": "02-01", "firstFrost": "12-15" },
+    "98101": { "lastFrost": "03-25", "firstFrost": "11-15" },
+    "30301": { "lastFrost": "03-20", "firstFrost": "11-15" },
+    "80202": { "lastFrost": "05-15", "firstFrost": "09-25" },
+    "85001": { "lastFrost": "01-20", "firstFrost": "12-10" }
+  }
+}

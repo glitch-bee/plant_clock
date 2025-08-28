@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "description": "Simplified crop guidelines. Offsets in days from last frost for spring planting and from first frost for fall crops.",
+    "units": "days",
+    "notes": "start method: direct, transplant, either"
+  },
+  "crops": [
+    {
+      "name": "Tomato",
+      "type": "food",
+      "start": "transplant",
+      "spring": { "afterLastFrost": 14 },
+      "fall": null
+    },
+    {
+      "name": "Lettuce",
+      "type": "food",
+      "start": "either",
+      "spring": { "beforeLastFrost": 30 },
+      "fall": { "beforeFirstFrost": 60 }
+    },
+    {
+      "name": "Carrot",
+      "type": "food",
+      "start": "direct",
+      "spring": { "beforeLastFrost": 14 },
+      "fall": { "beforeFirstFrost": 70 }
+    },
+    {
+      "name": "Sunflower",
+      "type": "flower",
+      "start": "direct",
+      "spring": { "afterLastFrost": 7 },
+      "fall": null
+    },
+    {
+      "name": "Marigold",
+      "type": "flower",
+      "start": "either",
+      "spring": { "afterLastFrost": 7 },
+      "fall": null
+    }
+  ]
+}
