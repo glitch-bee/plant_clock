@@ -1,0 +1,974 @@
+{
+  "metadata": {
+    "description": "Planting windows for common vegetables, herbs, and flowers. Offsets in days relative to last spring frost and first fall frost.",
+    "version": "2025-08-29",
+    "units": "days",
+    "source": "Compiled baseline from extension guides; approximate windows for U.S. temperate climates."
+  },
+  "crops": [
+    {
+      "name": "Tomato",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 35,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12,
+      "dtm_days": 70
+    },
+    {
+      "name": "Basil",
+      "type": "herb",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 42,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10,
+      "dtm_days": 60
+    },
+    {
+      "name": "Lettuce",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -30,
+          "end_days": 0,
+          "methods": [
+            "direct",
+            "start_indoors"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -30,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5,
+      "dtm_days": 55,
+      "succession_interval_days": 10
+    },
+    {
+      "name": "Carrot",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -14,
+          "end_days": 28,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -90,
+          "end_days": -70,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 7,
+      "dtm_days": 70
+    },
+    {
+      "name": "Asparagus",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 35,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "notes": "Plant crowns; perennial."
+    },
+    {
+      "name": "Beans",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 30,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10,
+      "dtm_days": 60
+    },
+    {
+      "name": "Beets",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -14,
+          "end_days": 28,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -40,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 7,
+      "dtm_days": 55
+    },
+    {
+      "name": "Broccoli",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -56,
+          "end_days": -28,
+          "methods": [
+            "start_indoors"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -100,
+          "end_days": -70,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 7,
+      "dtm_days": 65
+    },
+    {
+      "name": "Brussels Sprouts",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -56,
+          "end_days": -42,
+          "methods": [
+            "start_indoors"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -120,
+          "end_days": -90,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 7,
+      "dtm_days": 90
+    },
+    {
+      "name": "Cabbage",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -56,
+          "end_days": -28,
+          "methods": [
+            "start_indoors"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -100,
+          "end_days": -70,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 7,
+      "dtm_days": 70
+    },
+    {
+      "name": "Cauliflower",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -42,
+          "end_days": -28,
+          "methods": [
+            "start_indoors"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -100,
+          "end_days": -80,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 7,
+      "dtm_days": 70
+    },
+    {
+      "name": "Celery",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 0,
+          "end_days": 21,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10,
+      "dtm_days": 90,
+      "notes": "Start indoors very early (10\u201312 weeks)."
+    },
+    {
+      "name": "Chives",
+      "type": "herb",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 28,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5,
+      "notes": "Perennial."
+    },
+    {
+      "name": "Collard Greens",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 14,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -90,
+          "end_days": -60,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5,
+      "dtm_days": 60
+    },
+    {
+      "name": "Cucumbers",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 35,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12,
+      "dtm_days": 55
+    },
+    {
+      "name": "Sweet Corn",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 28,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10,
+      "dtm_days": 75
+    },
+    {
+      "name": "Eggplant",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 21,
+          "end_days": 42,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 15,
+      "dtm_days": 80
+    },
+    {
+      "name": "Onion",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 14,
+          "methods": [
+            "transplant",
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5,
+      "dtm_days": 90
+    },
+    {
+      "name": "Garlic",
+      "type": "food",
+      "windows": [
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -28,
+          "end_days": 14,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "notes": "Plant cloves in fall; harvest next summer."
+    },
+    {
+      "name": "Kale",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 14,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -90,
+          "end_days": -45,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5,
+      "dtm_days": 60
+    },
+    {
+      "name": "Cantaloupe",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 21,
+          "end_days": 35,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 15,
+      "dtm_days": 80
+    },
+    {
+      "name": "Parsnips",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -14,
+          "end_days": 14,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5,
+      "dtm_days": 100
+    },
+    {
+      "name": "Peas",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -42,
+          "end_days": -14,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -80,
+          "end_days": -60,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5,
+      "dtm_days": 60
+    },
+    {
+      "name": "Bell Peppers",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 42,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 13,
+      "dtm_days": 75
+    },
+    {
+      "name": "Potatoes",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -21,
+          "end_days": 14,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 7,
+      "dtm_days": 90
+    },
+    {
+      "name": "Pumpkins",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 35,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12,
+      "dtm_days": 100
+    },
+    {
+      "name": "Radishes",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 35,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 4,
+      "dtm_days": 30,
+      "succession_interval_days": 7
+    },
+    {
+      "name": "Rhubarb",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 35,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "notes": "Plant crowns; perennial."
+    },
+    {
+      "name": "Spinach",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -42,
+          "end_days": 0,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -21,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 4,
+      "dtm_days": 45
+    },
+    {
+      "name": "Summer Squash",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 35,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12,
+      "dtm_days": 55
+    },
+    {
+      "name": "Swiss Chard",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -21,
+          "end_days": 28,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -35,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5,
+      "dtm_days": 60
+    },
+    {
+      "name": "Turnips",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 21,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -35,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5,
+      "dtm_days": 50
+    },
+    {
+      "name": "Watermelon",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 21,
+          "end_days": 35,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 15,
+      "dtm_days": 85
+    },
+    {
+      "name": "Winter Squash",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 35,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12,
+      "dtm_days": 95
+    },
+    {
+      "name": "Thyme",
+      "type": "herb",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -14,
+          "end_days": 56,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5
+    },
+    {
+      "name": "Oregano",
+      "type": "herb",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -14,
+          "end_days": 56,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5
+    },
+    {
+      "name": "Rosemary",
+      "type": "herb",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 56,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10
+    },
+    {
+      "name": "Cilantro",
+      "type": "herb",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -21,
+          "end_days": 21,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5,
+      "succession_interval_days": 10
+    },
+    {
+      "name": "Parsley",
+      "type": "herb",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 14,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5
+    },
+    {
+      "name": "Mint",
+      "type": "herb",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -14,
+          "end_days": 56,
+          "methods": [
+            "transplant",
+            "direct"
+          ]
+        }
+      ],
+      "notes": "Spreads aggressively."
+    },
+    {
+      "name": "Sage",
+      "type": "herb",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -14,
+          "end_days": 56,
+          "methods": [
+            "transplant",
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 7
+    },
+    {
+      "name": "Tarragon",
+      "type": "herb",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 42,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Okra",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 21,
+          "end_days": 42,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 18,
+      "dtm_days": 60
+    },
+    {
+      "name": "Sweet Potato",
+      "type": "food",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 21,
+          "end_days": 42,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 18,
+      "dtm_days": 100,
+      "notes": "Plant slips after soil warms."
+    },
+    {
+      "name": "Dill",
+      "type": "herb",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -14,
+          "end_days": 28,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5,
+      "succession_interval_days": 10
+    },
+    {
+      "name": "Sunflower",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 56,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10
+    },
+    {
+      "name": "Marigold",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 42,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10
+    }
+  ]
+}

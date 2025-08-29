@@ -4,10 +4,13 @@ export type ZipFrostData = {
   zips: Record<string, FrostInfo>;
 };
 
+export type Method = 'direct' | 'transplant' | 'either' | 'start_indoors';
+export type Category = 'food' | 'flower' | 'herb';
+
 export type Crop = {
   name: string;
-  type: 'food' | 'flower';
-  start: 'direct' | 'transplant' | 'either';
+  type: Category;
+  start: Method;
   spring?: { beforeLastFrost?: number; afterLastFrost?: number } | null;
   fall?: { beforeFirstFrost?: number; afterFirstFrost?: number } | null;
 };
@@ -17,11 +20,34 @@ export type CropsData = {
   crops: Crop[];
 };
 
+// Expanded schema support
+export type ExpandedCropWindow = {
+  season: 'spring' | 'fall';
+  anchor: 'last_frost_spring' | 'first_frost_fall';
+  start_days: number; // inclusive
+  end_days: number; // inclusive
+  methods: Exclude<Method, 'either'>[];
+};
+
+export type ExpandedCrop = {
+  name: string;
+  type: Category | string; // unknown types will be treated as-is
+  windows: ExpandedCropWindow[];
+  soil_temp_min_c?: number;
+  dtm_days?: number;
+  notes?: string;
+};
+
+export type ExpandedCropsData = {
+  metadata: { description: string; version?: string; units?: string; source?: string };
+  crops: ExpandedCrop[];
+};
+
 export type UserInput = {
   zip: string;
   date: Date; // current date reference
-  category: 'food' | 'flower';
-  method: 'direct' | 'transplant' | 'either';
+  category: Category;
+  method: Method;
 };
 
 export type Suggestion = {
@@ -30,6 +56,7 @@ export type Suggestion = {
   windowEnd: Date;
   season: 'spring' | 'fall';
   reason: string;
+  methods?: Exclude<Method, 'either'>[];
 };
 
 // Parse a MM-DD string into a Date in the same year as ref
@@ -94,16 +121,49 @@ export function formatDate(d: Date): string {
   return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
 }
 
-export function planSuggestions(input: UserInput, crops: CropsData, frost: ZipFrostData): Suggestion[] {
+function isExpandedCropsData(data: unknown): data is ExpandedCropsData {
+  if (!data || typeof data !== 'object') return false;
+  const maybe = data as { crops?: unknown };
+  if (!Array.isArray(maybe.crops) || maybe.crops.length === 0) return false;
+  const first = maybe.crops[0] as unknown;
+  return !!(first && typeof first === 'object' && 'windows' in (first as Record<string, unknown>));
+}
+
+export function planSuggestions(input: UserInput, crops: CropsData | ExpandedCropsData, frost: ZipFrostData): Suggestion[] {
   const frosts = getZipFrost(input.zip, frost, input.date);
   const now = input.date;
-  return crops.crops
+  // If dataset looks like expanded schema, use that path
+  if (isExpandedCropsData(crops)) {
+    const expanded = crops;
+    return expanded.crops
+      .filter(c => (c.type as string) === input.category)
+      .flatMap(c => c.windows.map(w => ({ crop: c, w })))
+      .filter(({ w }) => input.method === 'either' || w.methods.includes(input.method as Exclude<Method, 'either'>))
+      .flatMap(({ crop, w }) => {
+        const anchorDate = w.anchor === 'last_frost_spring' ? frosts.lastFrost : frosts.firstFrost;
+        const start = addDays(anchorDate, w.start_days);
+        const end = addDays(anchorDate, w.end_days);
+        return isWithin(now, addDays(start, -7), addDays(end, 7))
+          ? [{
+              crop: { name: crop.name, type: crop.type as Category, start: 'either', spring: null, fall: null },
+              windowStart: start,
+              windowEnd: end,
+              season: w.season,
+              reason: `Within ${w.season} window for ${crop.name}`,
+              methods: w.methods,
+            } as Suggestion]
+          : [];
+      })
+      .sort((a, b) => a.windowStart.getTime() - b.windowStart.getTime());
+  }
+  // legacy simple schema
+  return (crops as CropsData).crops
     .filter(c => c.type === input.category)
     .filter(c => input.method === 'either' || c.start === 'either' || c.start === input.method)
     .flatMap(crop => {
       const windows = computeWindows(crop, frosts);
       return windows
-        .filter(w => isWithin(now, addDays(w.start, -7), addDays(w.end, 7))) // forgiving range
+        .filter(w => isWithin(now, addDays(w.start, -7), addDays(w.end, 7)))
         .map(w => ({
           crop,
           windowStart: w.start,

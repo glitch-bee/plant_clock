@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import './App.css';
-import type { CropsData, ZipFrostData, UserInput, Suggestion } from './lib/planner';
+import type { CropsData, ExpandedCropsData, ZipFrostData, UserInput, Suggestion } from './lib/planner';
 import { planSuggestions, formatDate } from './lib/planner';
 
 function useStaticJson<T>(path: string) {
@@ -19,12 +19,15 @@ function useStaticJson<T>(path: string) {
 }
 
 function App() {
-  const { data: crops } = useStaticJson<CropsData>('/data/crops.json');
+  // Try expanded first, fallback to simple
+  const { data: cropsExpanded } = useStaticJson<ExpandedCropsData>('/data/crops_expanded.json');
+  const { data: cropsSimple } = useStaticJson<CropsData>('/data/crops.json');
+  const crops = (cropsExpanded as unknown as CropsData | null) ?? cropsSimple ?? null;
   const { data: frost } = useStaticJson<ZipFrostData>('/data/zip_frost.json');
 
   const [zip, setZip] = useState('10001');
-  const [category, setCategory] = useState<'food' | 'flower'>('food');
-  const [method, setMethod] = useState<'direct' | 'transplant' | 'either'>('either');
+  const [category, setCategory] = useState<'food' | 'flower' | 'herb'>('food');
+  const [method, setMethod] = useState<'direct' | 'transplant' | 'either' | 'start_indoors'>('either');
   const [dateStr, setDateStr] = useState<string>(() => new Date().toISOString().slice(0, 10));
 
   const date = useMemo(() => new Date(dateStr), [dateStr]);
@@ -61,17 +64,19 @@ function App() {
         </label>
         <label>
           Category
-          <select value={category} onChange={(e) => setCategory(e.target.value as 'food' | 'flower')}>
+          <select value={category} onChange={(e) => setCategory(e.target.value as 'food' | 'flower' | 'herb')}>
             <option value="food">Food</option>
             <option value="flower">Flowers</option>
+            <option value="herb">Herbs</option>
           </select>
         </label>
         <label>
           Method
-          <select value={method} onChange={(e) => setMethod(e.target.value as 'either' | 'direct' | 'transplant')}>
+          <select value={method} onChange={(e) => setMethod(e.target.value as 'either' | 'direct' | 'transplant' | 'start_indoors')}>
             <option value="either">Either</option>
             <option value="direct">Direct sow</option>
             <option value="transplant">Transplant</option>
+            <option value="start_indoors">Start indoors</option>
           </select>
         </label>
       </form>
