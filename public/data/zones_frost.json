@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "description": "Typical last/first frost anchor dates by USDA hardiness zone (approximate, generalized).",
+    "notes": "These are rough averages. Local conditions vary. Month-Day strings.",
+    "source": "Approximate anchors compiled from extension and garden references"
+  },
+  "zones": {
+    "3a": { "lastFrost": "06-01", "firstFrost": "09-01" },
+    "3b": { "lastFrost": "05-25", "firstFrost": "09-10" },
+    "4a": { "lastFrost": "05-20", "firstFrost": "09-15" },
+    "4b": { "lastFrost": "05-15", "firstFrost": "09-25" },
+    "5a": { "lastFrost": "05-10", "firstFrost": "10-05" },
+    "5b": { "lastFrost": "05-01", "firstFrost": "10-10" },
+    "6a": { "lastFrost": "04-25", "firstFrost": "10-20" },
+    "6b": { "lastFrost": "04-15", "firstFrost": "10-25" },
+    "7a": { "lastFrost": "04-05", "firstFrost": "11-05" },
+    "7b": { "lastFrost": "03-30", "firstFrost": "11-15" },
+    "8a": { "lastFrost": "03-15", "firstFrost": "11-25" },
+    "8b": { "lastFrost": "03-01", "firstFrost": "12-05" },
+    "9a": { "lastFrost": "02-15", "firstFrost": "12-15" },
+    "9b": { "lastFrost": "02-01", "firstFrost": "12-25" },
+    "10a": { "lastFrost": "01-15", "firstFrost": "12-31" },
+    "10b": { "lastFrost": "01-01", "firstFrost": "12-31" },
+    "11a": { "lastFrost": "01-01", "firstFrost": "12-31" },
+    "11b": { "lastFrost": "01-01", "firstFrost": "12-31" },
+    "12a": { "lastFrost": "01-01", "firstFrost": "12-31" },
+    "12b": { "lastFrost": "01-01", "firstFrost": "12-31" },
+    "13a": { "lastFrost": "01-01", "firstFrost": "12-31" },
+    "13b": { "lastFrost": "01-01", "firstFrost": "12-31" }
+  }
+}

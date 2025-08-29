@@ -4,6 +4,12 @@ export type ZipFrostData = {
   zips: Record<string, FrostInfo>;
 };
 
+// USDA zone dataset
+export type ZoneFrostData = {
+  metadata: { description: string; notes?: string; source?: string };
+  zones: Record<string, FrostInfo>; // e.g., "6b": { lastFrost: "04-15", firstFrost: "10-25" }
+};
+
 export type Method = 'direct' | 'transplant' | 'either' | 'start_indoors';
 export type Category = 'food' | 'flower' | 'herb';
 
@@ -84,6 +90,15 @@ export function getZipFrost(zip: string, data: ZipFrostData, ref: Date): { lastF
   return { lastFrost, firstFrost };
 }
 
+export function getZoneFrost(zone: string, data: ZoneFrostData, ref: Date): { lastFrost: Date; firstFrost: Date } {
+  const rec = data.zones[zone];
+  if (!rec) {
+    // Fallback: use a generic mid-spring/mid-fall anchor if zone missing
+    return { lastFrost: parseMonthDay('04-15', ref), firstFrost: parseMonthDay('10-15', ref) };
+  }
+  return { lastFrost: parseMonthDay(rec.lastFrost, ref), firstFrost: parseMonthDay(rec.firstFrost, ref) };
+}
+
 export function computeWindows(crop: Crop, frosts: { lastFrost: Date; firstFrost: Date }): { season: 'spring' | 'fall'; start: Date; end: Date }[] {
   const out: { season: 'spring' | 'fall'; start: Date; end: Date }[] = [];
   if (crop.spring) {
@@ -160,6 +175,53 @@ export function planSuggestions(input: UserInput, crops: CropsData | ExpandedCro
   return (crops as CropsData).crops
     .filter(c => c.type === input.category)
     .filter(c => input.method === 'either' || c.start === 'either' || c.start === input.method)
+    .flatMap(crop => {
+      const windows = computeWindows(crop, frosts);
+      return windows
+        .filter(w => isWithin(now, addDays(w.start, -7), addDays(w.end, 7)))
+        .map(w => ({
+          crop,
+          windowStart: w.start,
+          windowEnd: w.end,
+          season: w.season,
+          reason: `Based on ${w.season} window for ${crop.name}`,
+        } as Suggestion));
+    })
+    .sort((a, b) => a.windowStart.getTime() - b.windowStart.getTime());
+}
+
+export function planSuggestionsFromFrosts(
+  opts: { date: Date; category: Category; method: Method },
+  crops: CropsData | ExpandedCropsData,
+  frosts: { lastFrost: Date; firstFrost: Date }
+): Suggestion[] {
+  const now = opts.date;
+  if (isExpandedCropsData(crops)) {
+    return crops.crops
+      .filter(c => (c.type as string) === opts.category)
+      .flatMap(c => c.windows.map(w => ({ crop: c, w })))
+      .filter(({ w }) => opts.method === 'either' || w.methods.includes(opts.method as Exclude<Method, 'either'>))
+      .flatMap(({ crop, w }) => {
+        const anchorDate = w.anchor === 'last_frost_spring' ? frosts.lastFrost : frosts.firstFrost;
+        const start = addDays(anchorDate, w.start_days);
+        const end = addDays(anchorDate, w.end_days);
+        return isWithin(now, addDays(start, -7), addDays(end, 7))
+          ? [{
+              crop: { name: crop.name, type: crop.type as Category, start: 'either', spring: null, fall: null },
+              windowStart: start,
+              windowEnd: end,
+              season: w.season,
+              reason: `Within ${w.season} window for ${crop.name}`,
+              methods: w.methods,
+            } as Suggestion]
+          : [];
+      })
+      .sort((a, b) => a.windowStart.getTime() - b.windowStart.getTime());
+  }
+  // legacy
+  return (crops as CropsData).crops
+    .filter(c => c.type === opts.category)
+    .filter(c => opts.method === 'either' || c.start === 'either' || c.start === opts.method)
     .flatMap(crop => {
       const windows = computeWindows(crop, frosts);
       return windows

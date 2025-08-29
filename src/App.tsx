@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import './App.css';
-import type { CropsData, ExpandedCropsData, ZipFrostData, UserInput, Suggestion } from './lib/planner';
-import { planSuggestions, formatDate } from './lib/planner';
+import type { CropsData, ExpandedCropsData, Suggestion, ZoneFrostData } from './lib/planner';
+import { formatDate, getZoneFrost, planSuggestionsFromFrosts } from './lib/planner';
 
 function useStaticJson<T>(path: string) {
   const [data, setData] = useState<T | null>(null);
@@ -34,24 +34,32 @@ function App() {
     return cropsExpanded ?? cropsFlowers ?? null;
   }, [cropsExpanded, cropsFlowers]);
   const crops = (mergedExpanded as unknown as CropsData | null) ?? cropsSimple ?? null;
-  const { data: frost } = useStaticJson<ZipFrostData>('/data/zip_frost.json');
+  const { data: zones } = useStaticJson<ZoneFrostData>('/data/zones_frost.json');
 
-  const [zip, setZip] = useState('10001');
+  const [zone, setZone] = useState<string>('6b');
   const [category, setCategory] = useState<'food' | 'flower' | 'herb'>('food');
   const [method, setMethod] = useState<'direct' | 'transplant' | 'either' | 'start_indoors'>('either');
   const [dateStr, setDateStr] = useState<string>(() => new Date().toISOString().slice(0, 10));
+  const [manualLF, setManualLF] = useState<string | null>(() => localStorage.getItem('lf'));
+  const [manualFF, setManualFF] = useState<string | null>(() => localStorage.getItem('ff'));
 
   const date = useMemo(() => new Date(dateStr), [dateStr]);
 
-  const input: UserInput | null = useMemo(() => {
-    if (!crops || !frost) return null;
-    return { zip, category, method, date };
-  }, [zip, category, method, date, crops, frost]);
+  const frosts = useMemo(() => {
+    if (!zones) return null;
+    if (manualLF && manualFF) {
+      return {
+        lastFrost: new Date(`${date.getFullYear()}-${manualLF}`),
+        firstFrost: new Date(`${date.getFullYear()}-${manualFF}`),
+      };
+    }
+    return getZoneFrost(zone, zones, date);
+  }, [zones, zone, manualLF, manualFF, date]);
 
   const suggestions: Suggestion[] = useMemo(() => {
-    if (!input || !crops || !frost) return [];
-    return planSuggestions(input, crops, frost);
-  }, [input, crops, frost]);
+    if (!crops || !frosts) return [];
+    return planSuggestionsFromFrosts({ date, category, method }, crops, frosts);
+  }, [crops, frosts, date, category, method]);
 
   return (
     <div className="app">
@@ -60,14 +68,12 @@ function App() {
 
       <form className="controls" onSubmit={(e) => e.preventDefault()}>
         <label>
-          ZIP Code
-          <input
-            value={zip}
-            onChange={(e) => setZip(e.target.value.replace(/[^0-9]/g, '').slice(0, 5))}
-            inputMode="numeric"
-            pattern="[0-9]{5}"
-            placeholder="12345"
-          />
+          USDA Zone
+          <select value={zone} onChange={(e) => setZone(e.target.value)}>
+            {['3a','3b','4a','4b','5a','5b','6a','6b','7a','7b','8a','8b','9a','9b','10a','10b','11a','11b','12a','12b','13a','13b'].map(z => (
+              <option key={z} value={z}>{z}</option>
+            ))}
+          </select>
         </label>
         <label>
           Date
@@ -93,8 +99,35 @@ function App() {
       </form>
 
       <section>
+        <h3>Frost anchors</h3>
+        {!frosts ? (
+          <p>Loading zones…</p>
+        ) : (
+          <div className="card">
+            <div>Last frost: {formatDate(frosts.lastFrost)} | First frost: {formatDate(frosts.firstFrost)}</div>
+            <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
+              <input
+                type="text"
+                placeholder="MM-DD last"
+                value={manualLF ?? ''}
+                onChange={(e) => setManualLF(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="MM-DD first"
+                value={manualFF ?? ''}
+                onChange={(e) => setManualFF(e.target.value)}
+              />
+              <button onClick={() => { if (manualLF) localStorage.setItem('lf', manualLF); if (manualFF) localStorage.setItem('ff', manualFF); }}>Save</button>
+              <button onClick={() => { localStorage.removeItem('lf'); localStorage.removeItem('ff'); setManualLF(null); setManualFF(null); }}>Reset</button>
+            </div>
+          </div>
+        )}
+      </section>
+
+      <section>
         <h2>Suggestions</h2>
-        {!crops || !frost ? (
+  {!crops || !frosts ? (
           <p>Loading data…</p>
         ) : suggestions.length === 0 ? (
           <p>No exact matches today. Try adjusting method or date. We search within ±7 days of windows.</p>
