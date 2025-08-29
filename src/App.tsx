@@ -21,8 +21,19 @@ function useStaticJson<T>(path: string) {
 function App() {
   // Try expanded first, fallback to simple
   const { data: cropsExpanded } = useStaticJson<ExpandedCropsData>('/data/crops_expanded.json');
+  const { data: cropsFlowers } = useStaticJson<ExpandedCropsData>('/data/crops_flowers.json');
   const { data: cropsSimple } = useStaticJson<CropsData>('/data/crops.json');
-  const crops = (cropsExpanded as unknown as CropsData | null) ?? cropsSimple ?? null;
+  // Merge expanded datasets if both present
+  const mergedExpanded: ExpandedCropsData | null = useMemo(() => {
+    if (cropsExpanded && cropsFlowers) {
+      return {
+        metadata: { ...cropsExpanded.metadata, version: cropsExpanded.metadata.version ?? cropsFlowers.metadata.version },
+        crops: [...cropsExpanded.crops, ...cropsFlowers.crops],
+      };
+    }
+    return cropsExpanded ?? cropsFlowers ?? null;
+  }, [cropsExpanded, cropsFlowers]);
+  const crops = (mergedExpanded as unknown as CropsData | null) ?? cropsSimple ?? null;
   const { data: frost } = useStaticJson<ZipFrostData>('/data/zip_frost.json');
 
   const [zip, setZip] = useState('10001');

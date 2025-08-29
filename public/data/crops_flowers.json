@@ -1,0 +1,1127 @@
+{
+  "metadata": {
+    "description": "Planting windows for common annual and perennial flowers. Offsets are in days relative to last spring frost and first fall frost. Generalized for U.S. temperate climates; adjust locally.",
+    "version": "2025-08-29",
+    "units": "days",
+    "source": "Compiled baseline from extension/cut-flower guides; approximate windows for v1."
+  },
+  "crops": [
+    {
+      "name": "Zinnia",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 56,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12
+    },
+    {
+      "name": "Cosmos",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 56,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12
+    },
+    {
+      "name": "Marigold",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 42,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10
+    },
+    {
+      "name": "Sunflower",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 56,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10
+    },
+    {
+      "name": "Tithonia (Mexican Sunflower)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 42,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12
+    },
+    {
+      "name": "Gomphrena",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 56,
+          "methods": [
+            "transplant",
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12
+    },
+    {
+      "name": "Celosia",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 56,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12
+    },
+    {
+      "name": "Ageratum",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 56,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12
+    },
+    {
+      "name": "Amaranthus",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 56,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12
+    },
+    {
+      "name": "Nasturtium",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 35,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10
+    },
+    {
+      "name": "Morning Glory",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 35,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12
+    },
+    {
+      "name": "Portulaca (Moss Rose)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 42,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12
+    },
+    {
+      "name": "Verbena (annual)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 56,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12
+    },
+    {
+      "name": "Salvia (annual)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 56,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12
+    },
+    {
+      "name": "Petunia",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 56,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10
+    },
+    {
+      "name": "Impatiens",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 56,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12
+    },
+    {
+      "name": "Begonia (annual)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 21,
+          "end_days": 56,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 12
+    },
+    {
+      "name": "Calendula",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 28,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -35,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5
+    },
+    {
+      "name": "Sweet Pea",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -42,
+          "end_days": -14,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5
+    },
+    {
+      "name": "Pansy/Viola",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 28,
+          "methods": [
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5
+    },
+    {
+      "name": "Snapdragon",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 14,
+          "methods": [
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -84,
+          "end_days": -42,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5
+    },
+    {
+      "name": "Larkspur",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -56,
+          "end_days": -14,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -84,
+          "end_days": -42,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 4
+    },
+    {
+      "name": "Delphinium",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -42,
+          "end_days": 0,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5
+    },
+    {
+      "name": "Bachelor's Button (Cornflower)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -42,
+          "end_days": 0,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -84,
+          "end_days": -42,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 4
+    },
+    {
+      "name": "Iceland Poppy",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -56,
+          "end_days": -14,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -84,
+          "end_days": -42,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 4
+    },
+    {
+      "name": "Shirley/Field Poppy",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -56,
+          "end_days": -14,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -84,
+          "end_days": -42,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 4
+    },
+    {
+      "name": "Alyssum",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 28,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5
+    },
+    {
+      "name": "Scabiosa (Pincushion)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 0,
+          "end_days": 42,
+          "methods": [
+            "transplant",
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10
+    },
+    {
+      "name": "Statice (Sea Lavender)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 42,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10
+    },
+    {
+      "name": "Strawflower (Helichrysum)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 7,
+          "end_days": 42,
+          "methods": [
+            "transplant",
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10
+    },
+    {
+      "name": "Nigella (Love-in-a-Mist)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 7,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -35,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 5
+    },
+    {
+      "name": "Queen Anne's Lace (Ammi)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -14,
+          "end_days": 21,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 7
+    },
+    {
+      "name": "Bells of Ireland",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 7,
+          "methods": [
+            "direct",
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 7
+    },
+    {
+      "name": "Echinacea (Coneflower)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 0,
+          "end_days": 56,
+          "methods": [
+            "transplant",
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Black-eyed Susan (Rudbeckia)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 0,
+          "end_days": 56,
+          "methods": [
+            "transplant",
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Coreopsis",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 0,
+          "end_days": 56,
+          "methods": [
+            "transplant",
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Shasta Daisy",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 0,
+          "end_days": 56,
+          "methods": [
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gaillardia (Blanket Flower)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 0,
+          "end_days": 56,
+          "methods": [
+            "transplant",
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Phlox (perennial)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 0,
+          "end_days": 56,
+          "methods": [
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bee Balm (Monarda)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 0,
+          "end_days": 56,
+          "methods": [
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yarrow (Achillea)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 0,
+          "end_days": 56,
+          "methods": [
+            "transplant",
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lavender",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 56,
+          "methods": [
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -42,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "soil_temp_min_c": 10
+    },
+    {
+      "name": "Lupine",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -14,
+          "end_days": 28,
+          "methods": [
+            "transplant",
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -84,
+          "end_days": -42,
+          "methods": [
+            "direct"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Foxglove (biennial)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 28,
+          "methods": [
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -84,
+          "end_days": -56,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Columbine (Aquilegia)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -14,
+          "end_days": 42,
+          "methods": [
+            "transplant",
+            "direct"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dahlia (tuber)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 42,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ],
+      "notes": "Plant tubers after danger of frost; lift in cold zones."
+    },
+    {
+      "name": "Gladiolus (corm)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 14,
+          "end_days": 70,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "notes": "Succession plant every 2 weeks for staggered bloom."
+    },
+    {
+      "name": "Ranunculus (corm)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -84,
+          "end_days": -42,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 0,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "notes": "Pre-soak and pre-sprout; protect from hard freezes."
+    },
+    {
+      "name": "Anemone (corm)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -84,
+          "end_days": -42,
+          "methods": [
+            "direct"
+          ]
+        },
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": -28,
+          "end_days": 0,
+          "methods": [
+            "direct"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tulip (bulb)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -60,
+          "end_days": 14,
+          "methods": [
+            "direct"
+          ]
+        }
+      ],
+      "notes": "Plant in fall; chill requirement in warm zones."
+    },
+    {
+      "name": "Daffodil (Narcissus)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -60,
+          "end_days": 14,
+          "methods": [
+            "direct"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hyacinth",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -60,
+          "end_days": 14,
+          "methods": [
+            "direct"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Crocus",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -60,
+          "end_days": 14,
+          "methods": [
+            "direct"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Iris (rhizome)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -84,
+          "end_days": -28,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Peony",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Daylily (Hemerocallis)",
+      "type": "flower",
+      "windows": [
+        {
+          "season": "spring",
+          "anchor": "last_frost_spring",
+          "start_days": 0,
+          "end_days": 56,
+          "methods": [
+            "transplant"
+          ]
+        },
+        {
+          "season": "fall",
+          "anchor": "first_frost_fall",
+          "start_days": -70,
+          "end_days": -28,
+          "methods": [
+            "transplant"
+          ]
+        }
+      ]
+    }
+  ]
+}
