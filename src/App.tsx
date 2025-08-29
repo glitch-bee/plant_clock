@@ -64,7 +64,7 @@ function App() {
   return (
     <div className="app">
       <h1>Plant Clock</h1>
-      <p className="tagline">Quick planting suggestions by ZIP and date (static JSON demo)</p>
+      <p className="tagline">Quick planting suggestions by USDA zone and date (demo)</p>
 
       <form className="controls" onSubmit={(e) => e.preventDefault()}>
         <label>
@@ -149,7 +149,7 @@ function App() {
       </section>
 
       <footer>
-        <small>Demo data only. Frost dates are approximate. v0.1</small>
+        <small>Demo data only. v0.1</small>
       </footer>
     </div>
   );
